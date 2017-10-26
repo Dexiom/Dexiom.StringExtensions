@@ -93,5 +93,16 @@ namespace Dexiom.StringExtensions
             }
         }
 
+        /// <summary>
+        /// Check if the specified text occurs within this string.
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="text">Text to search</param>
+        /// <param name="stringComparison">Comparison rule</param>
+        /// <returns></returns>
+        public static bool Contains(this string source, string text, StringComparison stringComparison)
+        {
+            return source.IndexOf(text, stringComparison) >= 0;
+        }
     }
 }

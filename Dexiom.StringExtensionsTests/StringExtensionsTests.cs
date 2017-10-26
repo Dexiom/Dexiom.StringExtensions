@@ -25,7 +25,7 @@ namespace Dexiom.StringExtensions.Tests
         public void RightTest()
         {
             const string text = "The quick brown fox jumps over the lazy dog";
-            
+
             Assert.IsTrue(text.Right(3) == "dog");
             Assert.IsTrue(text.Right(int.MaxValue) == text);
         }
@@ -46,6 +46,16 @@ namespace Dexiom.StringExtensions.Tests
             Assert.IsTrue(text.Mid(4, 2) == "45");
             Assert.IsTrue(text.Mid(7) == "789");
             Assert.IsTrue(text.Mid(int.MaxValue) == string.Empty);
+        }
+
+        [TestMethod()]
+        public void ContainsTest()
+        {
+            const string text = "JonathanParé";
+
+            Assert.IsTrue(text.Contains("Nathan", StringComparison.OrdinalIgnoreCase));
+            Assert.IsFalse(text.Contains("paré", StringComparison.Ordinal));
+            Assert.IsTrue(text.Contains("Paré", StringComparison.Ordinal));
         }
     }
 }
