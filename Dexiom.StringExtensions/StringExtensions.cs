@@ -104,5 +104,20 @@ namespace Dexiom.StringExtensions
         {
             return source.IndexOf(text, stringComparison) >= 0;
         }
+
+        /// <summary>
+        /// Reduce the length of a string (ex: for a preview)
+        /// If the string is longer than specified, the exceeding portion will be replaced by "..."
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="maxLength">Maximum length of the resulting string</param>
+        /// <returns></returns>
+        public static string Shorten(this string source, int maxLength)
+        {
+            if (source.Length <= maxLength)
+                return source;
+
+            return source.Substring(0, maxLength - 3) + "...";
+        }
     }
 }

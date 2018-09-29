@@ -11,6 +11,7 @@ namespace Dexiom.StringExtensions.Tests
     [TestClass()]
     public class StringExtensionsTests
     {
+        private const string LazyFox = "The quick brown fox jumps over the lazy dog";
 
         [TestMethod()]
         public void ToWordsTest()
@@ -56,6 +57,13 @@ namespace Dexiom.StringExtensions.Tests
             Assert.IsTrue(text.Contains("Nathan", StringComparison.OrdinalIgnoreCase));
             Assert.IsFalse(text.Contains("paré", StringComparison.Ordinal));
             Assert.IsTrue(text.Contains("Paré", StringComparison.Ordinal));
+        }
+
+        [TestMethod()]
+        public void ShortenTest()
+        {
+            Assert.IsTrue(LazyFox.Shorten(6) == "The...");
+            Assert.IsTrue(LazyFox.Shorten(LazyFox.Length) == LazyFox);
         }
     }
 }
